@@ -208,7 +208,7 @@ function fetPost4(url, callback, id) {
     })
 }
 
-var port = process.env.PORT || config.port
+var port = process.env.PORT || 3379
 app.listen(port, function(){
-     console.log(`${pkg.name} listening on port ${port}`)
+     console.log(`listening on port ${port}`)
 })

@@ -12,7 +12,7 @@ router.get('/register', function(req, res) {
 router.post('/register', function(req, res) {
     res.cookie("register_id", 0);
     console.log(req.body)
-    Account.register(new Account({username : req.body.username }), req.body.password, function(err, account) {
+    Account.register(new Account({username : req.body.username }), req.body.password,0,0,0,0, function(err, account) {
         if (err) {
             res.cookie("register_id", 1);
             return res.render('register', { account : account });
@@ -36,7 +36,7 @@ function sleep (time) {
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
     
-    console.log("Successfully login as "+req.body.username);
+    console.log("Successfully login as "+req.body);
     res.cookie('userid', req.body.username);
 
     // res.send("Successfully logged in, redirecting...")
